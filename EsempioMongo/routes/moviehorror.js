@@ -1,19 +1,20 @@
 var express = require('express');
 var router = express.Router();
 const MongoClient = require('mongodb').MongoClient; //Importo la libreria mongodb
-const uri = "mongodb+srv://Luo:Giacomo567567@cluster0.kj9lm.mongodb.net/Cluster0?retryWrites=true&w=majority";
+const uri = "mongodb+srv://andrewjm:andrewko08@cluster0.glqtn.mongodb.net/Cluster0?retryWrites=true&w=majority";
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
         const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-        client.connect(get10Movies);
+        client.connect(get10Movieshorror);
 
         
-        function get10Movies(err){
+        function get10Movieshorror(err){
             if(err) console.log("Conessione al db non riuscita");
             else{
                 const collection = client.db("sample_mflix").collection("movies");
-                collection.find().limit(10).toArray(callBackQuery);
+                query = {genres:{$in:["Comedy"]}}
+                collection.find(query).limit(10).toArray(callBackQuery);
             }
 
         }
