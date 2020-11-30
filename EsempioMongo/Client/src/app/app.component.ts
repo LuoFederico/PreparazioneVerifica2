@@ -19,6 +19,11 @@ export class AppComponent {
     this.obs = this.http.get("https://3000-fba64bd3-4e90-4b6e-9413-937570f26cf2.ws-eu01.gitpod.io/movies");
     this.obs.subscribe(this.getData);
   }
+    load10MoviesHorror()
+  {
+    this.obs = this.http.get("https://3000-fba64bd3-4e90-4b6e-9413-937570f26cf2.ws-eu01.gitpod.io/moviehorror");
+    this.obs.subscribe(this.getData);
+  }
 
   photoURL(urltoSanitize) {
     console.log(urltoSanitize);
